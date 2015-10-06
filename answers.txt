@@ -44,7 +44,8 @@ self.die_here() called.
  line 389 and game.py 1582 (function should_offer_hint) should be combined in some way to avoid repeating code.
  
 6. The program accounts for  symbol, number, and non-word text inputs by skipping over symbols, and returning
-"I don't know that word" or "I don't understand that" when given number or a non-word text input.  
+"I don't know that word" or "I don't understand that" when given number or a non-word text input. You can make 
+the program terminate by control C like usual, however.
 
 
 7. Game.py line 19 class Game is responsible for properties of the cave, the status of the player and game,
@@ -72,11 +73,7 @@ Bad Comments:
 10. data.py lines 36-40 there is space (and a comment) tp indicate the separation between
 class Data and the other functions below that are not a part of the class	
 
-11. Due to the fact that the tests are not stored on the same level as the rest of the modules, we cannot 
-import the play module to run test_commands.py. When running test_walks.py and test_data.py
-we get no return.  So, the test do not meet the FIRST criteria. We cannot tell if they are 
-fast or not, but likely would be if they successfully ran. They are independent so they can
-be run in any order. They are repeatable in any environment, but must be able to import the adventure
-modules in order to run. The tests don't seem to be self-validating because two of them
-had no return so it was unclear what went wrong.
-			 			 			
+11. Test_data.py ran 10 tests in 0.458s, test_commands.py ran 2 tests in 3.555s,
+and test_walks.py ran 1 test in 0.003s with 1 error. All tests were short and pretty fast. They are
+independent of each other and can be run in any order. However, they required different modules to run. 
+They were self-validating, and the first two clearly passed, while test_walks failed.
